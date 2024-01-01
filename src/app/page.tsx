@@ -8,6 +8,7 @@ import axios from "axios";
 const Home = () => {
     const SP = useSearchParams();
     const router = useRouter();
+    if (SP.get("token_id") === null) router.push(`${CLIENT_URL}/u/me?alert=true`)
     const [DISCORD_TOKEN, SET_DISCORD_TOKEN] = useState("");
     const [error, setError] = useState<String | null>(null);
     var secret = new fernet.Secret(FERNET_SALT || "");;
